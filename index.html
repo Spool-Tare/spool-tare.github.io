@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spool Tare — filament spool weights</title>
+  <meta name="description" content="Find the weight of an empty 3D printer filament spool and work out how much filament is left.">
+  <!-- Set content to "owner/repository" if the site is not served from <owner>.github.io. -->
+  <meta name="github-repo" content="">
+  <meta name="theme-color" content="#0a0e1a">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <script type="module" src="assets/app.js"></script>
+  <script type="module" src="assets/particles.js"></script>
+</head>
+<body>
+  <div id="nebula" aria-hidden="true"></div>
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <header class="top">
+    <a class="brand" href="./">
+      <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+        <circle cx="16" cy="16" r="14.5" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="16" cy="16" r="8" fill="none" stroke="var(--blue)" stroke-width="5"/>
+        <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
+      </svg>
+      <span>Spool Tare</span>
+    </a>
+    <nav class="nav" data-i18n-aria="nav.label" aria-label="Pages">
+      <a href="./" aria-current="page" data-i18n="nav.home">Calculator</a>
+      <a href="spools.html" data-i18n="nav.catalog">All spools</a>
+    </nav>
+    <div class="top-actions">
+      <label class="lang">
+        <span class="sr-only" data-i18n="lang.label">Language</span>
+        <select id="lang"></select>
+      </label>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-form">
+        <h1 id="hero-title" data-i18n="hero.title">How much filament is left on the spool?</h1>
+        <p class="lead" data-i18n="hero.lead">Pick your spool, put it on a kitchen scale and type what the scale shows.</p>
+
+        <div class="favorites" id="favorites" aria-labelledby="fav-title">
+          <h2 id="fav-title" data-i18n="fav.title">Favorites</h2>
+          <ul id="fav-list"></ul>
+          <p class="hint" id="fav-empty" data-i18n="fav.empty">Star the spools you use most and they stay here for a quick weigh-in.</p>
+        </div>
+
+        <div class="field combo">
+          <label for="pick" data-i18n="calc.spool.label">Your spool</label>
+          <div class="pick-row">
+            <input id="pick" type="search" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="pick-list"
+                   aria-autocomplete="list" data-i18n-placeholder="calc.spool.placeholder" placeholder="Search brand or product">
+            <span id="pick-fav"></span>
+          </div>
+          <ul id="pick-list" role="listbox" hidden></ul>
+          <p class="hint">
+            <span data-i18n="home.missing">Can't find your spool?</span>
+            <a href="spools.html" data-i18n="home.browse">Browse all spools</a>
+            <span data-i18n="home.or">or</span>
+            <a id="missing-add" href="spools.html#add" data-i18n="home.add">add yours</a>.
+          </p>
+        </div>
+
+        <div class="field reading">
+          <label for="reading" data-i18n="calc.reading.label">Scale reading</label>
+          <div class="with-unit">
+            <input id="reading" type="number" inputmode="decimal" min="0" step="1" placeholder="0">
+            <span aria-hidden="true">g</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scale" aria-live="polite">
+        <div class="gauge-wrap" id="gauge-wrap">
+          <svg class="gauge" viewBox="0 0 200 200" aria-hidden="true">
+            <circle class="gauge-flange" cx="100" cy="100" r="96"/>
+            <circle class="gauge-filament" id="gauge-filament" cx="100" cy="100" r="30"/>
+            <circle class="gauge-core" cx="100" cy="100" r="30"/>
+            <circle class="gauge-hole" cx="100" cy="100" r="11"/>
+          </svg>
+        </div>
+        <div class="scale-text">
+          <p class="scale-spool" id="scale-spool"></p>
+          <p class="scale-main" id="scale-main"></p>
+          <p class="scale-sub" id="scale-sub"></p>
+          <p class="scale-note" data-i18n="disclaimer.short">An estimate: empty spool weights vary and the data may not be accurate.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p class="disclaimer" data-i18n="disclaimer.full">Weights are approximate and sent by the community: they may not be accurate, and spools of the same model vary from batch to batch. Treat the result as an estimate, with no guarantee, and leave a margin before a long print.</p>
+  </footer>
+</body>
+</html>

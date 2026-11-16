@@ -1,0 +1,67 @@
+name: Spool submission
+
+# Reads a "Add a spool" issue, updates the data files on a branch and opens a pull request.
+# Merging that pull request publishes the spool and closes the issue.
+#
+# Repository setting required: Settings > Actions > General > Workflow permissions >
+# "Allow GitHub Actions to create and approve pull requests".
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: submission-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  process:
+    if: >-
+      github.event.issue.state == 'open' &&
+      (contains(github.event.issue.labels.*.name, 'spool-addition') || startsWith(github.event.issue.title, '[Spool]'))
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GITHUB_TOKEN: ${{ github.token }}
+      ISSUE: ${{ github.event.issue.number }}
+      BRANCH: submission/issue-${{ github.event.issue.number }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save --no-audit --no-fund sharp
+
+      - name: Read the issue
+        id: read
+        run: node scripts/process-issue.mjs
+
+      - name: Check the data
+        if: steps.read.outputs.ok == 'true'
+        run: node scripts/validate.mjs
+
+      - name: Open or update the pull request
+        if: steps.read.outputs.ok == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH"
+          git add data images
+          git commit -m "Add spool from issue #$ISSUE"
+          git push --force origin "$BRANCH"
+          { cat submission-result.md; echo; echo "Closes #$ISSUE"; } > pr-body.md
+          if gh pr view "$BRANCH" --json state --jq .state | grep -q OPEN; then
+            gh pr edit "$BRANCH" --body-file pr-body.md
+          else
+            gh pr create --head "$BRANCH" --base "${{ github.event.repository.default_branch }}" \
+              --title "Add spool from issue #$ISSUE" --body-file pr-body.md
+          fi
+
+      - name: Reply on the issue
+        if: always() && steps.read.outcome == 'success'
+        run: gh issue comment "$ISSUE" --body-file submission-result.md

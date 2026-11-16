@@ -1,0 +1,95 @@
+name: Add a spool
+description: Weighed an empty spool? Add it to the database.
+title: "[Spool] "
+labels: ["spool-addition"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fill in what you know. Only the manufacturer and the weight are required.
+        A few minutes after you submit, a bot replies here with the result. To fix something, edit this issue.
+  - type: input
+    id: manufacturer
+    attributes:
+      label: Manufacturer
+      description: The brand printed on the spool or box, for example `Bambu Lab`.
+    validations:
+      required: true
+  - type: input
+    id: country
+    attributes:
+      label: Country where it is sold
+      description: "`Global` if the same spool is sold everywhere. If it is specific to one country, a two-letter code like `BR` or the name in English like `Brazil`."
+      value: Global
+  - type: dropdown
+    id: spool_material
+    attributes:
+      label: Spool is made of
+      options:
+        - Plastic
+        - Cardboard
+        - Metal
+        - Not sure
+  - type: input
+    id: filament
+    attributes:
+      label: Filament weight when new
+      description: How much filament the spool holds, as printed on the label. For example `1 kg` or `750 g`.
+  - type: input
+    id: variant
+    attributes:
+      label: Spool variant
+      description: Only if the brand has more than one spool like this. Describe the spool itself, not the filament, for example `reusable`, `3rd generation`, `transparent`, `black, 4 windows`.
+  - type: input
+    id: weight
+    attributes:
+      label: Empty spool weight (g)
+      description: In grams, for example `212`. If you weighed several, give the range, like `210-216`.
+    validations:
+      required: true
+  - type: input
+    id: outer_mm
+    attributes:
+      label: Outer diameter (mm)
+  - type: input
+    id: width_mm
+    attributes:
+      label: Width (mm)
+  - type: input
+    id: hole_mm
+    attributes:
+      label: Hole diameter (mm)
+      description: The hole the spool holder goes through.
+  - type: input
+    id: filaments
+    attributes:
+      label: Filaments sold on this spool
+      description: The filament lines you have seen on this spool, separated by commas, for example `PLA+, PETG, eSilk`.
+  - type: input
+    id: year
+    attributes:
+      label: Year
+      description: When the spool was bought, for example `2025`.
+  - type: dropdown
+    id: source_type
+    attributes:
+      label: Where the weight comes from
+      options:
+        - I weighed it myself
+        - Manufacturer's website or datasheet
+        - Other source
+  - type: input
+    id: source_url
+    attributes:
+      label: Link to the source
+      description: If the weight comes from a web page, paste its address.
+  - type: textarea
+    id: comment
+    attributes:
+      label: Notes
+      description: How many spools you weighed, anything unusual.
+  - type: textarea
+    id: photo
+    attributes:
+      label: Photo
+      description: Drag a photo of the empty spool into this box. Location data is removed before it is published.

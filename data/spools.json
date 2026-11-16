@@ -1,0 +1,353 @@
+[
+  {
+    "id": "3d-lab-01",
+    "manufacturer": "3d-lab",
+    "country": "BR",
+    "spool_material": "plastic",
+    "filament_g": 1000,
+    "variant": "",
+    "weight_g": 242,
+    "dimensions": null,
+    "filaments": [
+      "PLA Speed Premium"
+    ],
+    "year": null,
+    "comment": "Marked on the spool as made from recycled material.",
+    "image": "images/spools/3d-lab-01.webp",
+    "source": {
+      "type": "measured",
+      "by": "project maintainer",
+      "url": null
+    },
+    "verified": false
+  },
+  {
+    "id": "bambu-lab-01",
+    "manufacturer": "bambu-lab",
+    "country": "global",
+    "spool_material": "plastic",
+    "filament_g": 1000,
+    "variant": "White",
+    "weight_g": 248,
+    "dimensions": null,
+    "filaments": [
+      "PLA Lite"
+    ],
+    "year": 2026,
+    "comment": "The cardboard inside weights about ~36g",
+    "image": "images/spools/bambu-lab-01.webp",
+    "source": {
+      "type": "measured",
+      "by": "project maintainer",
+      "url": null
+    },
+    "verified": false
+  },
+  {
+    "id": "closin-01",
+    "manufacturer": "closin",
+    "country": "BR",
+    "spool_material": "plastic",
+    "filament_g": 1000,
+    "variant": "",
+    "weight_g": 145,
+    "dimensions": null,
+    "filaments": [
+      "PETG"
+    ],
+    "year": null,
+    "comment": "",
+    "image": "images/spools/closin-01.webp",
+    "source": {
+      "type": "measured",
+      "by": "project maintainer",
+      "url": null
+    },
+    "verified": true
+  },
+  {
+    "id": "creality-01",
+    "manufacturer": "creality",
+    "country": "global",
+    "spool_material": "plastic",
+    "filament_g": 1000,
+    "variant": "",
+    "weight_g": 190,
+    "dimensions": {
+      "outer_mm": 200,
+      "width_mm": 63.1,
+      "hole_mm": 56.1
+    },
+    "filaments": [
+      "PETG",
+      "PLA"
+    ],
+    "year": 2024,
+    "comment": "Core ID: 56.1 mm, Core OD: 89.8 mm, Core Width (Between the high walls): 58 mm, Overall Spool Width: 63.1 mm, Overall front label width/height: 200 mm",
+    "image": null,
+    "source": {
+      "type": "import",
+      "by": "emptyspool.github.io",
+      "url": "https://emptyspool.github.io"
+    },
+    "verified": false
+  },
+  {
+    "id": "creality-06",
+    "manufacturer": "creality",
+    "country": "global",
+    "spool_material": "cardboard",
+    "filament_g": 1000,
+    "variant": "",
+    "weight_g": 180,
+    "dimensions": {
+      "outer_mm": 200,
+      "width_mm": 58
+    },
+    "filaments": [
+      "Hyper ABS",
+      "Hyper PLA"
+    ],
+    "year": 2024,
+    "comment": "Cardboard Spool, Diameter=200, Width=58, Core diam=88",
+    "image": null,
+    "source": {
+      "type": "import",
+      "by": "emptyspool.github.io",
+      "url": "https://emptyspool.github.io"
+    },
+    "verified": false
+  },
+  {
+    "id": "elegoo-02",
+    "manufacturer": "elegoo",
+    "country": "global",
+    "spool_material": "cardboard",
+    "filament_g": 1000,
+    "variant": "",
+    "weight_g": 153,
+    "dimensions": null,
+    "filaments": [
+      "Rapid PETG"
+    ],
+    "year": 2025,
+    "comment": "Cardboard Spool",
+    "image": "images/spools/legacy-elegoo.webp",
+    "source": {
+      "type": "import",
+      "by": "emptyspool.github.io",
+      "url": "https://emptyspool.github.io"
+    },
+    "verified": false
+  },
+  {
+    "id": "esun-01",
+    "manufacturer": "esun",
+    "country": "global",
+    "spool_material": "plastic",
+    "filament_g": 1000,
+    "variant": "",
+    "weight_g": 242,
+    "dimensions": null,
+    "filaments": [
+      "PLA+",
+      "eMarble",
+      "eSilk",
+      "eTPU"
+    ],
+    "year": null,
+    "comment": "Weight is an average of 10 empty spools",
+    "image": null,
+    "source": {
+      "type": "import",
+      "by": "emptyspool.github.io",
+      "url": "https://emptyspool.github.io"
+    },
+    "verified": false
+  },
+  {
+    "id": "esun-02",
+    "manufacturer": "esun",
+    "country": "global",
+    "spool_material": "cardboard",
+    "filament_g": 1000,
+    "variant": "",
+    "weight_g": 166,
+    "dimensions": {
+      "outer_mm": 199,
+      "width_mm": 61.9,
+      "hole_mm": 54
+    },
+    "filaments": [
+      "PLA+"
+    ],
+    "year": 2024,
+    "comment": "Core ID: 81.5 mm, Core OD: 90.2 mm, Core Width (Between the high walls): 56.6 mm, Overall Spool Width: 61.9 mm, Overall front label width/height: 199 mm, Hole in the outer wall: 54mm, eSun spools are weird, because they have a hole in the cardboard 'wall' where the label is, then it steps down, to where the actual core is glued in... So the ID/OD in the hole on the wall isnt the same as the core ID/OD. The core is a separate glued in piece entirely.",
+    "image": "images/spools/legacy-esun.webp",
+    "source": {
+      "type": "import",
+      "by": "emptyspool.github.io",
+      "url": "https://emptyspool.github.io"
+    },
+    "verified": false
+  },
+  {
+    "id": "national-3d-01",
+    "manufacturer": "national-3d",
+    "country": "BR",
+    "spool_material": "plastic",
+    "filament_g": 1000,
+    "variant": "",
+    "weight_g": 244,
+    "dimensions": null,
+    "filaments": [],
+    "year": 2026,
+    "comment": "",
+    "image": "images/spools/national-3d-01.webp",
+    "source": {
+      "type": "measured",
+      "by": "project maintainer",
+      "url": null
+    },
+    "verified": false
+  },
+  {
+    "id": "polymaker-06",
+    "manufacturer": "polymaker",
+    "country": "global",
+    "spool_material": "cardboard",
+    "filament_g": 1000,
+    "variant": "",
+    "weight_g": 140,
+    "weight_min_g": 133,
+    "weight_max_g": 147,
+    "dimensions": {
+      "outer_mm": 200,
+      "width_mm": 65.6,
+      "hole_mm": 55
+    },
+    "filaments": [
+      "PolyTerra PLA"
+    ],
+    "year": null,
+    "comment": "Published as 140±7 g. Inner hole 55±1 mm, outer diameter 200±1 mm, width 65.6±2 mm.",
+    "image": null,
+    "source": {
+      "type": "manufacturer",
+      "by": "Polymaker FAQ",
+      "url": "https://wiki.polymaker.com/polymaker-products/about-polymaker/polymaker-faq"
+    },
+    "verified": false
+  },
+  {
+    "id": "soleyin-01",
+    "manufacturer": "soleyin",
+    "country": "global",
+    "spool_material": "plastic",
+    "filament_g": 1000,
+    "variant": "",
+    "weight_g": 190,
+    "dimensions": null,
+    "filaments": [
+      "Ultra PLA"
+    ],
+    "year": null,
+    "comment": "",
+    "image": "images/spools/soleyin-01.webp",
+    "source": {
+      "type": "measured",
+      "by": "project maintainer",
+      "url": null
+    },
+    "verified": false
+  },
+  {
+    "id": "sunlu-02",
+    "manufacturer": "sunlu",
+    "country": "global",
+    "spool_material": "plastic",
+    "filament_g": 1000,
+    "variant": "2nd gen",
+    "weight_g": 132,
+    "dimensions": null,
+    "filaments": [
+      "PLA+"
+    ],
+    "year": 2023,
+    "comment": "See image for Sunlu Generational Differences",
+    "image": "images/spools/legacy-sunlu-generations.webp",
+    "source": {
+      "type": "import",
+      "by": "emptyspool.github.io",
+      "url": "https://emptyspool.github.io"
+    },
+    "verified": false
+  },
+  {
+    "id": "sunlu-03",
+    "manufacturer": "sunlu",
+    "country": "global",
+    "spool_material": "plastic",
+    "filament_g": 1000,
+    "variant": "3rd gen",
+    "weight_g": 155,
+    "dimensions": null,
+    "filaments": [
+      "PLA+"
+    ],
+    "year": 2023,
+    "comment": "See image for Sunlu Generational Differences",
+    "image": "images/spools/legacy-sunlu-generations.webp",
+    "source": {
+      "type": "import",
+      "by": "emptyspool.github.io",
+      "url": "https://emptyspool.github.io"
+    },
+    "verified": false
+  },
+  {
+    "id": "voolt3d-01",
+    "manufacturer": "voolt3d",
+    "country": "BR",
+    "spool_material": "plastic",
+    "filament_g": 1000,
+    "variant": "Obsoleto",
+    "weight_g": 189,
+    "dimensions": null,
+    "filaments": [
+      "PLA",
+      "PETG"
+    ],
+    "year": 2023,
+    "comment": "",
+    "image": "images/spools/voolt3d-01.webp",
+    "source": {
+      "type": "measured",
+      "by": "project maintainer",
+      "url": null
+    },
+    "verified": false
+  },
+  {
+    "id": "voolt3d-02",
+    "manufacturer": "voolt3d",
+    "country": "BR",
+    "spool_material": "plastic",
+    "filament_g": 1000,
+    "variant": "Novo",
+    "weight_g": 116,
+    "dimensions": null,
+    "filaments": [
+      "PLA Premium"
+    ],
+    "year": 2026,
+    "comment": "",
+    "image": "images/spools/voolt3d-02.webp",
+    "source": {
+      "type": "measured",
+      "by": "project maintainer",
+      "url": null
+    },
+    "verified": false
+  }
+]

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>All spools — Spool Tare</title>
+  <meta name="description" content="Empty weights of 3D printer filament spools, by manufacturer, with filters and photos.">
+  <!-- Set content to "owner/repository" if the site is not served from <owner>.github.io. -->
+  <meta name="github-repo" content="">
+  <meta name="theme-color" content="#0a0e1a">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <script type="module" src="assets/app.js"></script>
+  <script type="module" src="assets/particles.js"></script>
+</head>
+<body>
+  <div id="nebula" aria-hidden="true"></div>
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <header class="top">
+    <a class="brand" href="./">
+      <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+        <circle cx="16" cy="16" r="14.5" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="16" cy="16" r="8" fill="none" stroke="var(--blue)" stroke-width="5"/>
+        <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
+      </svg>
+      <span>Spool Tare</span>
+    </a>
+    <nav class="nav" data-i18n-aria="nav.label" aria-label="Pages">
+      <a href="./" data-i18n="nav.home">Calculator</a>
+      <a href="spools.html" aria-current="page" data-i18n="nav.catalog">All spools</a>
+    </nav>
+    <div class="top-actions">
+      <label class="lang">
+        <span class="sr-only" data-i18n="lang.label">Language</span>
+        <select id="lang"></select>
+      </label>
+    </div>
+  </header>
+
+  <main>
+    <section class="catalog" aria-labelledby="catalog-title">
+      <div class="catalog-head">
+        <h1 id="catalog-title" data-i18n="catalog.title">All spools</h1>
+        <p id="catalog-count" class="muted"></p>
+      </div>
+
+      <form class="filters" id="filters" role="search">
+        <div class="field grow">
+          <label for="q" data-i18n="filter.search">Search</label>
+          <input id="q" type="search" data-i18n-placeholder="filter.search.placeholder" placeholder="Brand, product, note">
+        </div>
+        <div class="field">
+          <label for="f-country" data-i18n="filter.country">Country</label>
+          <select id="f-country"></select>
+        </div>
+        <div class="field">
+          <label for="f-size" data-i18n="filter.size">Filament weight</label>
+          <select id="f-size"></select>
+        </div>
+        <div class="field">
+          <label for="f-body" data-i18n="filter.body">Spool made of</label>
+          <select id="f-body"></select>
+        </div>
+        <div class="field">
+          <label for="f-sort" data-i18n="filter.sort">Sort by</label>
+          <select id="f-sort">
+            <option value="maker" data-i18n="sort.maker">Manufacturer</option>
+            <option value="light" data-i18n="sort.light">Lightest first</option>
+            <option value="heavy" data-i18n="sort.heavy">Heaviest first</option>
+          </select>
+        </div>
+        <label class="check"><input id="f-photo" type="checkbox"> <span data-i18n="filter.photo">With photo</span></label>
+      </form>
+
+      <div id="list"></div>
+
+      <aside class="glass cta">
+        <div>
+          <h2 data-i18n="cta.title">Didn't find your spool?</h2>
+          <p class="muted" data-i18n="cta.text">Weigh it when it is empty and add it, so the next person finds it here.</p>
+        </div>
+        <button class="btn btn-primary" id="open-contribute" type="button" data-i18n="contribute.open">Add a spool</button>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p class="disclaimer" data-i18n="disclaimer.full">Weights are approximate and sent by the community: they may not be accurate, and spools of the same model vary from batch to batch. Treat the result as an estimate, with no guarantee, and leave a margin before a long print.</p>
+  </footer>
+
+  <dialog id="contribute" aria-labelledby="contribute-title">
+    <form id="contribute-form" method="dialog">
+      <h2 id="contribute-title" data-i18n="contribute.title">Add a spool you weighed</h2>
+      <p class="muted" data-i18n="contribute.lead">Fill this in, then finish on GitHub, where you can attach a photo. You need a free GitHub account.</p>
+
+      <div class="field">
+        <label for="c-maker" data-i18n="field.manufacturer">Manufacturer</label>
+        <input id="c-maker" list="makers" required autocomplete="off">
+        <datalist id="makers"></datalist>
+        <p class="hint" id="c-maker-hint"></p>
+      </div>
+      <div class="field">
+        <label for="c-country" data-i18n="field.country">Country where it is sold</label>
+        <select id="c-country"></select>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="c-body" data-i18n="field.body">Spool made of</label>
+          <select id="c-body"></select>
+        </div>
+        <div class="field">
+          <label for="c-filament" data-i18n="field.filament">Filament weight when new</label>
+          <input id="c-filament" placeholder="1 kg">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="c-weight" data-i18n="field.weight">Empty spool weight</label>
+          <div class="with-unit"><input id="c-weight" type="number" inputmode="decimal" min="5" max="5000" step="0.1" required><span aria-hidden="true">g</span></div>
+        </div>
+        <div class="field">
+          <label for="c-variant" data-i18n="field.variant">Spool variant</label>
+          <input id="c-variant" maxlength="60" data-i18n-placeholder="field.variant.placeholder" placeholder="Reusable, 3rd generation, transparent…">
+        </div>
+      </div>
+      <div class="row row-3">
+        <div class="field">
+          <label for="c-outer" data-i18n="field.outer">Outer diameter</label>
+          <div class="with-unit"><input id="c-outer" type="number" inputmode="decimal" min="5" max="500" step="0.1"><span aria-hidden="true">mm</span></div>
+        </div>
+        <div class="field">
+          <label for="c-width" data-i18n="field.width">Width</label>
+          <div class="with-unit"><input id="c-width" type="number" inputmode="decimal" min="5" max="500" step="0.1"><span aria-hidden="true">mm</span></div>
+        </div>
+        <div class="field">
+          <label for="c-hole" data-i18n="field.hole">Hole diameter</label>
+          <div class="with-unit"><input id="c-hole" type="number" inputmode="decimal" min="5" max="500" step="0.1"><span aria-hidden="true">mm</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="c-filaments" data-i18n="field.filaments">Filaments sold on this spool</label>
+          <input id="c-filaments" placeholder="PLA+, PETG, eSilk">
+        </div>
+        <div class="field">
+          <label for="c-year" data-i18n="field.year">Year bought</label>
+          <input id="c-year" type="number" inputmode="numeric" min="2000" max="2100" step="1">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="c-source" data-i18n="field.source">Where the weight comes from</label>
+          <select id="c-source">
+            <option value="I weighed it myself" data-i18n="source.opt.measured">I weighed it myself</option>
+            <option value="Manufacturer's website or datasheet" data-i18n="source.opt.manufacturer">Manufacturer's website or datasheet</option>
+            <option value="Other source" data-i18n="source.opt.other">Other source</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="c-source-url" data-i18n="field.sourceurl">Link to the source</label>
+          <input id="c-source-url" type="url" placeholder="https://">
+        </div>
+      </div>
+      <div class="field">
+        <label for="c-comment" data-i18n="field.comment">Notes</label>
+        <textarea id="c-comment" rows="2" maxlength="500" data-i18n-placeholder="field.comment.placeholder" placeholder="Outer diameter, width, core diameter…"></textarea>
+      </div>
+      <p class="hint" id="c-error" role="alert"></p>
+      <div class="dialog-actions">
+        <button class="btn" type="button" id="contribute-cancel" data-i18n="contribute.cancel">Cancel</button>
+        <button class="btn btn-primary" type="submit" data-i18n="contribute.submit">Continue on GitHub</button>
+      </div>
+    </form>
+  </dialog>
+
+</body>
+</html>

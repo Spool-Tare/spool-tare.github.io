@@ -1,0 +1,70 @@
+[
+  {
+    "id": "3d-lab",
+    "name": "3D Lab",
+    "aliases": [
+      "3DLab"
+    ]
+  },
+  {
+    "id": "anycubic",
+    "name": "Anycubic",
+    "aliases": []
+  },
+  {
+    "id": "bambu-lab",
+    "name": "Bambu Lab",
+    "aliases": [
+      "Bambulab"
+    ]
+  },
+  {
+    "id": "closin",
+    "name": "Closin",
+    "aliases": []
+  },
+  {
+    "id": "creality",
+    "name": "Creality",
+    "aliases": []
+  },
+  {
+    "id": "elegoo",
+    "name": "ELEGOO",
+    "aliases": []
+  },
+  {
+    "id": "esun",
+    "name": "eSUN",
+    "aliases": []
+  },
+  {
+    "id": "national-3d",
+    "name": "National 3D",
+    "aliases": [
+      "National3D"
+    ]
+  },
+  {
+    "id": "polymaker",
+    "name": "Polymaker",
+    "aliases": []
+  },
+  {
+    "id": "soleyin",
+    "name": "Soleyin",
+    "aliases": []
+  },
+  {
+    "id": "sunlu",
+    "name": "SUNLU",
+    "aliases": []
+  },
+  {
+    "id": "voolt3d",
+    "name": "Voolt3D",
+    "aliases": [
+      "Voolt 3D"
+    ]
+  }
+]
