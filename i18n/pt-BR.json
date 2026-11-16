@@ -63,6 +63,7 @@
   "field.year": "Ano da compra",
   "field.comment": "Observações",
   "field.comment.placeholder": "Quantos carretéis você pesou, algo fora do comum…",
+  "footer.support": "Apoie o projeto no Ko-fi",
   "disclaimer.short": "É uma estimativa: o peso do carretel vazio varia e os dados podem não estar acurados.",
   "disclaimer.full": "Os pesos são aproximados e enviados pela comunidade: podem não estar acurados, e carretéis do mesmo modelo variam de um lote para outro. Trate o resultado como estimativa, sem garantia, e deixe uma margem antes de uma impressão longa.",
   "source.measured": "Pesado por {by}",

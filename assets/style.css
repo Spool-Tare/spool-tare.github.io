@@ -281,6 +281,8 @@ main { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 4rem; }
 
 .foot { max-width: 1200px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; color: var(--mist-50); font-size: 0.75rem; }
 .foot .disclaimer { max-width: 80ch; color: var(--mist-70); }
+.foot p + p { margin-top: 0.5rem; }
+.foot a { color: var(--blue); }
 
 /* Dialogs */
 dialog {

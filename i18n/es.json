@@ -63,6 +63,7 @@
   "field.year": "Año de compra",
   "field.comment": "Notas",
   "field.comment.placeholder": "Cuántas bobinas pesaste, algo fuera de lo común…",
+  "footer.support": "Apoya el proyecto en Ko-fi",
   "disclaimer.short": "Es una estimación: el peso de la bobina vacía varía y los datos pueden no ser exactos.",
   "disclaimer.full": "Los pesos son aproximados y los envía la comunidad: pueden no ser exactos, y las bobinas del mismo modelo varían de un lote a otro. Toma el resultado como una estimación, sin garantía, y deja un margen antes de una impresión larga.",
   "source.measured": "Pesada por {by}",
