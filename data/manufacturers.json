@@ -61,6 +61,11 @@
     "aliases": []
   },
   {
+    "id": "teste",
+    "name": "Teste",
+    "aliases": []
+  },
+  {
     "id": "voolt3d",
     "name": "Voolt3D",
     "aliases": [

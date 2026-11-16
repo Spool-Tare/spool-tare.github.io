@@ -349,5 +349,26 @@
       "url": null
     },
     "verified": false
+  },
+  {
+    "id": "teste-01",
+    "manufacturer": "teste",
+    "country": "global",
+    "spool_material": null,
+    "filament_g": 1000,
+    "variant": "",
+    "weight_g": 150,
+    "dimensions": null,
+    "filaments": [],
+    "year": null,
+    "comment": "",
+    "image": "images/spools/teste-01.webp",
+    "source": {
+      "type": "measured",
+      "by": "ralexsander",
+      "url": null,
+      "issue": 1
+    },
+    "verified": false
   }
 ]
