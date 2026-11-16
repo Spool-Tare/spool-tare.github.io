@@ -96,7 +96,7 @@
   <dialog id="contribute" aria-labelledby="contribute-title">
     <form id="contribute-form" method="dialog">
       <h2 id="contribute-title" data-i18n="contribute.title">Add a spool you weighed</h2>
-      <p class="muted" data-i18n="contribute.lead">Fill this in, then finish on GitHub, where you can attach a photo. You need a free GitHub account.</p>
+      <p class="muted" data-i18n="contribute.lead">Fill this in, then finish on GitHub, where you attach a photo of the spool (required). You need a free GitHub account.</p>
 
       <div class="field">
         <label for="c-maker" data-i18n="field.manufacturer">Manufacturer</label>
@@ -111,7 +111,7 @@
       <div class="row">
         <div class="field">
           <label for="c-body" data-i18n="field.body">Spool made of</label>
-          <select id="c-body"></select>
+          <select id="c-body" required></select>
         </div>
         <div class="field">
           <label for="c-filament" data-i18n="field.filament">Filament weight when new</label>

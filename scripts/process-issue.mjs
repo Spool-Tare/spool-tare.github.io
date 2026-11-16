@@ -87,6 +87,7 @@ const filament_g = f.filament ? parseGrams(f.filament) : null;
 if (f.filament && !filament_g) errors.push('**Filament weight when new** was not understood. Use values like `1 kg` or `750 g`.');
 
 const spoolMaterial = SPOOL_MATERIALS.find((m) => String(f.spool_material ?? '').toLowerCase().startsWith(m)) ?? null;
+if (!spoolMaterial) errors.push('**Spool is made of** is required: `Plastic`, `Cardboard` or `Metal`.');
 
 let year = null;
 if (f.year) {
@@ -105,8 +106,8 @@ if (f.source_url && !sourceUrl) warnings.push('The **Link to the source** was ig
 const photoUrl = String(f.photo ?? '').match(
   /https:\/\/(?:github\.com\/user-attachments\/assets\/[\w-]+|(?:private-)?user-images\.githubusercontent\.com\/[\w\-./%]+)/,
 )?.[0];
-if (f.photo && !photoUrl) {
-  warnings.push('The photo was ignored: drag the image file into the **Photo** box so it is uploaded to this issue (links to other sites are not used).');
+if (!photoUrl) {
+  errors.push('A **Photo** of the empty spool is required: drag the image file into the **Photo** box so it is uploaded to this issue (links to other sites are not used).');
 }
 
 async function savePhoto(url, id) {
@@ -170,12 +171,12 @@ if (!errors.length) {
     try {
       spool.image = await savePhoto(photoUrl, spool.id);
     } catch (e) {
-      warnings.push(`The photo could not be used (${e.message}). The spool was added without it.`);
+      errors.push(`The **Photo** could not be used (${e.message}). Edit the issue and drag the image file into the **Photo** box again.`);
     }
   }
 
   spools.push(spool);
-  if (!dryRun) {
+  if (!dryRun && !errors.length) {
     writeJson(MANUFACTURERS_FILE, manufacturers);
     writeJson(SPOOLS_FILE, spools);
   }

@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Fill in what you know. Only the manufacturer and the weight are required.
+        The manufacturer, what the spool is made of, its weight and a photo are required. Fill in the rest if you know it.
         A few minutes after you submit, a bot replies here with the result. To fix something, edit this issue.
   - type: input
     id: manufacturer
@@ -26,7 +26,9 @@ body:
     id: spool_material
     attributes:
       label: Spool is made of
-      description: "`Plastic`, `Cardboard` or `Metal`. Leave empty if you are not sure."
+      description: "`Plastic`, `Cardboard` or `Metal`."
+    validations:
+      required: true
   - type: input
     id: filament
     attributes:
@@ -88,3 +90,5 @@ body:
     attributes:
       label: Photo
       description: Drag a photo of the empty spool into this box. Location data is removed before it is published.
+    validations:
+      required: true

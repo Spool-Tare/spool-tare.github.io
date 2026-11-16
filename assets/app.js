@@ -338,7 +338,7 @@ function buildSelects() {
   if (!$('c-country').value) $('c-country').value = GLOBAL;
   keep('f-size', [option('', t('filter.any')), ...sizes.map((g) => option(g, size(g)))]);
   keep('f-body', [option('', t('filter.any')), ...SPOOL_MATERIALS.map((b) => option(b, t(`body.${b}`)))]);
-  keep('c-body', [option('', t('body.unknown')), ...SPOOL_MATERIALS.map((b) => option(b, t(`body.${b}`)))]);
+  keep('c-body', [option('', t('body.choose')), ...SPOOL_MATERIALS.map((b) => option(b, t(`body.${b}`)))]);
 }
 
 function filtered() {
