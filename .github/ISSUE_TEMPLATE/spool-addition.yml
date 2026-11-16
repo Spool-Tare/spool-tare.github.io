@@ -21,15 +21,12 @@ body:
       label: Country where it is sold
       description: "`Global` if the same spool is sold everywhere. If it is specific to one country, a two-letter code like `BR` or the name in English like `Brazil`."
       value: Global
-  - type: dropdown
+  # Text fields, not dropdowns: the site's form fills this page through the address, and that only works for text.
+  - type: input
     id: spool_material
     attributes:
       label: Spool is made of
-      options:
-        - Plastic
-        - Cardboard
-        - Metal
-        - Not sure
+      description: "`Plastic`, `Cardboard` or `Metal`. Leave empty if you are not sure."
   - type: input
     id: filament
     attributes:
@@ -70,14 +67,12 @@ body:
     attributes:
       label: Year
       description: When the spool was bought, for example `2025`.
-  - type: dropdown
+  - type: input
     id: source_type
     attributes:
       label: Where the weight comes from
-      options:
-        - I weighed it myself
-        - Manufacturer's website or datasheet
-        - Other source
+      description: "`I weighed it myself`, `Manufacturer's website or datasheet` or `Other source`."
+      value: I weighed it myself
   - type: input
     id: source_url
     attributes:
